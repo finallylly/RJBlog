@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="__PUBLIC__/Css/public.css" />
+  <title>Document</title>
+
+  <script type="text/javascript" src="__ROOT__/Data/ueditor/ueditor.config.js"></script> 
+  <script type="text/javascript" src="__ROOT__/Data/ueditor/ueditor.all.min.js"></script> 
+	<script type="text/javascript" src="__ROOT__/Data/ueditor/lang/zh-cn/zh-cn.js"></script> 
+	<link href="__ROOT__/Data/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" rel="stylesheet" type="text/css" />  
+
+	<script type="text/javascript" src="__ROOT__/Data/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>  
+
+	<script type="text/javascript">      
+
+	SyntaxHighlighter.all();       
+
+	</script>
+
+  <script type="text/javascript">
+  <!--
+		window.UEDITOR_HOME_URL = '__ROOT__/Data/ueditor';
+		window.onload = function(){
+			
+		// 	//window.UEDITOR_CONFIG.imageUrl = "{:U(MODULE_NAME . '/Blog/upload')}";
+		// 	//window.UEDITOR_CONFIG.imagePath = '__ROOT__/Uploads/';
+		UE.getEditor('content',{initialFrameHeight:800,initialFrameWidth:630});
+			
+		// var UE = new baidu.editor.ui.Editor();
+		// UE.render("content");
+
+		}
+  //-->
+  </script>
+
+ </head>
+ <body>
+	<form method="post" action="{:U(MODULE_NAME . '/Blog/addBlog')}" enctype="multipart/form-data">
+		<table class='table'>
+			<tr>
+				<td align='right' width='10%'>所属分类：</td>
+				<td>
+					<select name="cid">
+						<option value="" >===请选择分类===</option>
+							<foreach name='cate' item='v'>
+								<option value="{$v.id}" >{$v.html}{$v.name}</option>
+							</foreach>	
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td align='right' width='10%'>博文属性：</td>
+				<td>
+					<foreach name='attr' item='v'>
+						<label style='margin-right:10px;'>
+							<input type="checkbox" name="aid[]" value='{$v.id}'/>&nbsp;{$v.name} 
+						</label>
+					</foreach>
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<td align='right' width='10%'>点击次数：</td>
+				<td>
+					<input type="text" name="click" value='100'>
+				</td>
+			</tr>
+
+
+			<tr>
+				<td align='right' width='10%'>标题：</td>
+				<td>
+					<input type="text" name="title">
+				</td>
+			</tr>
+
+			<tr>
+				<td align='right' width='10%'>封面：</td>
+				<td>
+					<input type="file" name="cover_img">
+				</td>
+			</tr>
+			
+			<tr>
+				<td align='right' width='10%'>文章摘要：</td>
+				<td>
+					<input type="text" name="summary" >
+				</td>
+			</tr>
+
+			<tr>
+			
+			<td colspan='2'>
+				<textarea name="content" id='content'></textarea>
+			</td>
+			</tr>
+
+			<tr>
+			<td colspan='2' align='center'>
+				<input type="submit" value="提交">
+			</td>
+			</tr>
+			
+			
+		</table>
+	</form>
+ </body>
+</html>

@@ -1,0 +1,9 @@
+<dl>
+	<dt>最发布发</dt>
+	<foreach name='data' item='v'>
+		<dd>
+			<a href='{:U("/s_" . $v["id"])}'>{$v.title}</a>
+			<span>({$v.click})</span>
+		</dd>
+	</foreach>
+</dl>

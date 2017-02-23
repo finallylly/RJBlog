@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus庐">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link rel="stylesheet" href="__PUBLIC__/Css/public.css" />
+  <title>Document</title>
+ </head>
+ <body>
+	<form method="post" action="">
+		<table class='table'>
+			<tr>
+				<th>ID</th>
+				<th>属性名称</th>
+				<th>颜色</th>
+				<th>操作</th>
+			</tr>
+			<foreach name='attr' item='v'>
+				<tr>
+					<td>{$v.id}</td>
+					<td>{$v.name}</td>
+					<td>
+						<div id="" class="" style='width:20px;height:20px;background:{$v.color}'></div>
+					</td>
+					<td colspan='2'>
+						[<a href="">修改</a>]
+						[<a href="">删除</a>]
+					</td>
+					
+				</tr>
+			</foreach>
+			
+		</table>
+	</form>
+ </body>
+</html>

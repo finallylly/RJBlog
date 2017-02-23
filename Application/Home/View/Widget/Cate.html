@@ -1,0 +1,12 @@
+				
+<dl>
+	<dt>热门分类</dt>
+	<foreach name='menu' item='v'>
+		<dd>
+			<a href="{:U('/c_' . $v['id'])}">{$v.name}</a>
+			<span>({$v.click})</span>
+		</dd>
+	</foreach>
+		
+
+</dl>

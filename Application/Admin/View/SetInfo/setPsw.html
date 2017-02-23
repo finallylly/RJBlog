@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link rel="stylesheet" href="__PUBLIC__/Css/public.css" />
+  <title>Document</title>
+ </head>
+ <body>
+	<form method="post" action="{:U(MODULE_NAME . '/SetInfo/runSetPsw')}">
+		<table class='table'>
+			<tr>
+				<td align='right'>用户名</td>
+				<td>
+					<input type="text" name="name" value="{$name}" >
+				</td>
+			</tr>
+
+			<tr>
+				<td align='right'>密码</td>
+				<td>
+					<input type="text" name="psw"> 
+				</td>
+			</tr>
+
+			<tr>
+				<td align='center'></td>
+			    <td> <input type="submit" value="保存修改"></td>
+			</tr>
+		
+		</table>
+	</form>
+ </body>
+</html>

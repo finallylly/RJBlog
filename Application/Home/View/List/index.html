@@ -1,0 +1,30 @@
+<include file='Common:header'/>
+	<link rel="stylesheet" href="__PUBLIC__/Css/list.css" />
+
+<include file='Common:nav'/>
+
+<!--主体-->
+	<div class='main'>
+		<div class='main-left'>
+			<foreach name='blog' item='v'>
+				<dl>
+					<dt>{$v.name}</dt>
+					<dd class='read2'><a href="{:U('/s_' . $v['id'])}">{$v.title}</a></dd>
+					<dd class='info'>
+						<span class='time'>发布于：{$v.time|date='Y年m月d日 H:i:s', ###}</span>
+						<span class='click'>点击：{$v.click}</span>
+					</dd>
+					<dd class='content'>摘要：{$v.summary}</dd>
+					<dd class='read'>
+						<a href="{:U('/s_' . $v['id'])}">阅读全文>></a>
+					</dd>
+					
+				</dl>
+			</foreach>
+			
+			<p>{$page}</p>
+		</div>
+	<include file='Common:right'/>
+	</div>
+<!--底部-->
+	<include file='Common:bottom'/>

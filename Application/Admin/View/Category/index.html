@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link rel="stylesheet" href="__PUBLIC__/Css/public.css" />
+  <title>Document</title>
+ </head>
+ <body>
+	<form method="post" action="{:U(MODULE_NAME . '/Category/cateSort')}">
+		<table class='table'>
+			<tr>
+				<th>ID</th>
+				<th>名称</th>
+				<th>级别</th>
+				<th>排序</th>
+				<th>操作</th>
+			</tr>
+
+			<foreach name='cate' item='v'>
+				<tr>
+					<td>{$v.id}</td>
+					<td>{$v.html}{$v.name}</td>
+					<td>{$v.level}</td>
+					<td>
+						<input type="text" name="{$v.id}" value='{$v.sort}'>
+					</td>
+					<td>
+						[<a href="{:U(MODULE_NAME . '/Category/addCate', array('pid' => $v['id']))}">添加子分类</a>]
+						[<a href="">修改</a>]
+						[<a href="{:U(MODULE_NAME . '/Category/cateDel', array('id' => $v['id']))}">删除</a>]
+					</td>
+					
+				</tr>
+			</foreach>
+
+			<tr>
+				<td colspan='5' align="center">
+					<input type="submit" value="排序">
+				</td>
+				
+			</tr>
+		</table>
+	</form>
+  
+ </body>
+</html>

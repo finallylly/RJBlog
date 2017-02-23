@@ -1,0 +1,67 @@
+<!--头部-->
+	<div class='top-list-wrap'>
+		<div class='top-list'>
+			<ul class='l-list'>
+				<li><a href="http://blog.csdn.net/finallylly" target='_blank'>CSDN博客</a></li>
+				<li><a href="http://www.acfun.tv" target='_blank'>AcFun</a></li>
+				<li><a href="http://www.bilibili.com/" target='_blank'>Bilibili</a></li>
+			</ul>
+			<ul class='r-list'>
+				<li><a href="http://www.thinkphp.cn/" target='_blank'>ThinkPHP</a></li>
+				<li><a href="__ROOT__/Admin" target='_blank'>进入后台</a></li>
+			</ul>
+		</div>
+	</div>
+
+
+	<div class='top-search-wrap'>
+		<div class='top-search'>
+			<a href="__ROOT__/" target='_blank' class='logo'>
+				<img src="__PUBLIC__/Images/finallylly.png"/>
+			</a>
+			<div class='search-wrap'>
+				<form action="" method='get'>
+					<input type="text" name='keyword' class='search-content'/>
+					<input type="submit" name='search' value='搜索'/>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- <?php
+		$cate = M('cate')->order('sort')->select();
+		import('Class.Category', APP_PATH);
+		$cate = Category::catesortforlayer($cate);
+	?> -->
+
+
+	<div class='top-nav-wrap'>
+		<ul class='nav-lv1'>
+			<li class='nav-lv1-li'>
+				<a href="__ROOT__/" class='top-cate'>博客首页</a>
+			</li>
+		<!-- 	<foreach name='cate' item='v'>
+				<li class='nav-lv1-li'>
+					<a href="" class='top-cate'>{$v.name}</a>
+					<if condition='$v["child"]'>
+						<ul>
+						<foreach name='v.child' item='value'>			
+							<li><a href="">{$value.name}</a></li>
+						</foreach>
+						</ul>
+					</if>
+				</li>
+			</foreach> -->
+			<nav order='sort'>
+					<li class='nav-lv1-li'>
+							<a href="{$url}" class='top-cate'>{$name}</a>
+								<ul>
+								<foreach name='child' item='value'>			
+									<li><a href="{:U('/c_' . $value['id'])}">{$value.name}</a></li>
+								</foreach>
+								</ul>
+					</li>
+			</nav>
+			
+		</ul>
+	</div>

@@ -1,0 +1,200 @@
+<include file='Common:r_header' />
+
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i> 
+        <a href="__ROOT__/" title="RJ博客">首页</a>&nbsp;»&nbsp;
+        <php>$last = count($parent) - 1</php>
+        <foreach name='parent' item='v'>
+            <a href="{:U('/c_' . $v['id'])}">{$v.name}</a>
+            <if condition='$key neq $last'>&nbsp;»&nbsp;</if>
+        </foreach>&nbsp;»&nbsp;正文
+        
+    </div>
+    <div class="container">
+        <div class="content-wrap">
+            <div class="content">
+                <div class="article-container animation">
+                    <header class="article-header">
+                        <h1 class="article-title">{$blog.title}</h1>
+                        <div class="article-meta">
+                            <span><i class="fa fa-clock-o fa-fw"></i> {$blog.time|date='Y年m月d日', ###}</span>
+                            <span><i class="fa fa-eye fa-fw"></i>{$blog.click} views</span>
+                            <span><i class="fa fa-comment-o fa-fw"></i><a href="#">{$comment_count}</a></span>
+                        </div>
+                    </header>
+                    <article class="article-content">
+                        <div id="content-index" class="content-index" style="margin:0 0 10px 10px;float:right;">
+                            <div class="content-index-title">本文目录</div>
+                            <!-- <span class="content-index-toctoggle">[<a id="content-index-togglelink">隐藏</a>]</span>
+                            <ul id="content-index-contents">
+                                <li class="content-index-level-1"><a href="__ROOT__/1336.html#一、使用［Z-BlogPHP密码找回工具］" title="一、使用［Z-BlogPHP密码找回工具］"><em>1</em><span>一、使用［Z-BlogPHP密码找回工具］</span></a></li>
+                                <li class="content-index-level-2"><a href="__ROOT__/1336.html#二、根据VerifyLogin()更改" title="二、根据VerifyLogin()更改"><em>2</em><span>二、根据VerifyLogin()更改</span></a></li>
+                            </ul> -->
+                        </div>
+                        {$blog.content}
+                        <div class="bdshare">
+                            <div class="post-share bdsharebuttonbox bdshare-button-style1-16" data-bd-bind="1467045638956">
+                                <a href="{:U('/c_' . $v['id'])}#" class="bds_more" data-cmd="more"></a>
+                                <a href="{:U('/c_' . $v['id'])}#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                                <a href="{:U('/c_' . $v['id'])}#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                                <a href="{:U('/c_' . $v['id'])}#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+                                <a href="{:U('/c_' . $v['id'])}#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+                                <a href="{:U('/c_' . $v['id'])}#" class="bds_kaixin001" data-cmd="kaixin001" title="分享到开心网"></a>
+                                <a href="{:U('/c_' . $v['id'])}#" class="bds_meilishuo" data-cmd="meilishuo" title="分享到美丽说"></a>
+                            </div>
+                            <script>
+                            window._bd_share_config = {
+                                "common": {
+                                    "bdSnsKey": {},
+                                    "bdText": "",
+                                    "bdMini": "2",
+                                    "bdMiniList": false,
+                                    "bdPic": "",
+                                    "bdStyle": "1",
+                                    "bdSize": "16"
+                                },
+                                "share": {}
+                            };
+                            with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+                            </script>
+                        </div>
+                    </article>
+                    <footer class="entry-meta">
+                        <p class="post-tag">标签：
+                        <a href="__ROOT__/" rel="tag">RJ博客</a>
+                        </p>
+                    </footer>
+                </div>
+                <div id="author-box" class="animation">
+                    <h3><span>最后编辑于：{$blog.time|date='Y年m月d日', ###}</span>作者： finallylly</h3>
+                    <div class="author-info">
+                        <div class="author-avatar">
+                            <img src="__PUBLIC__/myblog_files/100.jpg" class="avatar avatar-128" height="128" width="128">
+                        </div>
+                        <div class="author-description">
+                            <p>学习建站技术,分享建站技术。</p>
+                            <ul class="author-social follows nb">
+                                <li class="archive">
+                                    <a target="_blank" href="__ROOT__/" title="阅读 RJ博客 的其他文章">阅读 RJ博客 的其他文章</a>
+                                </li>
+                                <li class="website">
+                                    <a target="_blank" rel="nofollow" href="__ROOT__/" title="访问 RJ博客 的网站">访问 RJ博客 的网站</a>
+                                </li>
+                                <li class="qq">
+                                    <a target="_blank" rel="nofollow" href="http://wpa.qq.com/msgrd?v=3&amp;uin=347881230&amp;site=qq&amp;menu=yes" title="通过QQ联系 finallylly">通过QQ联系 finallylly</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="post-navigation animation">
+                    <div class="post-previous"><a href="__ROOT__/s_33.html" rel="prev"><span>上一篇：</span>MySQL连接优化</a></div>
+                    <div class="post-next"><a href="__ROOT__/s_2.html" rel="next"><span>下一篇：</span> PHP和java通讯</a></div>
+                </div>
+                <div class="relates animation">
+                    <div class="title">
+                        <h3>相关推荐</h3></div>
+                    <ul>
+                        <li><a href="__ROOT__/s_1.html">Socket与WebService比较</a>
+                            <time>2016年06月20日</time>
+                        </li>
+                        <li><a href="__ROOT__/s_4.html">CentOS SVN服务器搭建</a>
+                            <time>2016年06月12日</time>
+                        </li>
+                        <li><a href="__ROOT__/s_5.html">个人博客 TP框架迁移</a>
+                            <time>2016年05月23日</time>
+                        </li>
+                    </ul>
+                </div>
+                <div id="comments" class="mkcomments animation">
+                    <div class="title">
+                        <h3>发表评论</h3></div>
+                    <label id="AjaxCommentBegin"></label>
+                    <ul class="msg">
+                        
+                        <label id="cmt544"></label>
+                        <li class="msgname" id="cmt-544">
+                            <div class="msgarticle">
+                                <div class="avatar">
+                                    <img src="__PUBLIC__/myblog_files/439afe60515faafcfc7267c543c4e7bf.png">
+                                </div>
+                                <div class="comment-body">
+                                    <div class="comment-header">
+                                        <a href="#" rel="nofollow" target="_blank">finallylly</a>
+                                    </div>
+                                    <p>欢迎评论
+                                        <label id="AjaxComment544"></label>
+                                    </p>
+                                    <div class="comment-footer">
+                                        <span class="comment-time" title="2016-06-26 09:26:01"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <volist name="comment" id="vo">
+                            {$vo}
+                        </volist>
+                    </ul>
+
+
+
+
+                    <label id="AjaxCommentEnd"></label>
+                    <div class="post-Comment" id="divCommentPost">
+                        <p class="posttop">
+                            <a rel="nofollow" id="cancel-reply" href="#" style="display:none;"><small>取消回复</small></a>
+                            <a name="comment"></a>
+                        </p>
+                        <form id="frmSumbit" target="_self" method="post" action="{:U('Show/addComment')}">
+                            <div class="pinglun">
+                                <p class="textarea-wrapper rounded-top">
+                                    <textarea name="txaArticle" id="txaArticle" class="text" cols="50" rows="4" tabindex="5"></textarea>
+                                </p>
+                                <p class="post-toolbar">
+                                    <input name="sumbit" type="submit" tabindex="6" value="提交" onclick="return VerifyMessage()" class="button">
+                                </p>
+                            </div>
+                            <input type="hidden" name="inpId" id="inpId" value="">
+                            <input type="hidden" name="inpRevID" id="inpRevID" value="{$blog.id}">
+                            <input type="hidden" name="bid" id="bid" value="{$blog.id}">
+                            <div class="post-terinfo">
+                                <ul>
+                                    <li>
+                                        <input type="text" name="inpName" id="inpName" class="text" value="" placeholder="您的昵称" size="28" tabindex="1">
+                                    </li>
+                                    <li>
+                                        <input type="text" name="inpEmail" id="inpEmail" class="text" value="" placeholder="您的邮箱" size="28" tabindex="2">
+                                    </li>
+                                    <li>
+                                        <input type="text" name="inpHomePage" id="inpHomePage" class="text" value="" placeholder="您的网站" onfocus="this.value='http://'" size="28" tabindex="3">
+                                    </li>
+                                </ul>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!--主题右侧-->
+        <include file='Common:r_right' />
+        
+    </div>
+
+<!--底部-->
+<include file='Common:r_bottom' />
+
+<script type="text/javascript">
+    $(function(){
+        $('.post-reply').click(function(){
+            $("input[name='inpId']").val($(this).attr('myid'));
+        });
+
+        $('#cancel-reply').click(function(){
+            $("input[name='inpId']").val('');
+        });
+
+    })
+</script>
