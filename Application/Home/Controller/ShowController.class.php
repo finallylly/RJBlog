@@ -87,7 +87,7 @@
 				'mail' => $params['inpEmail'],
 				'site' => $params['inpHomePage'],
 				'content' => htmlspecialchars($params['txaArticle']),  //防止script注入
-				'time' => date("Y-m-d H:m:s"),
+				'time' => date("Y-m-d H:i:s"),
 				'pid' => intval($params['inpId']),
 				'bid' => $params['bid'],
 			);
