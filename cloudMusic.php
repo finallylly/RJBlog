@@ -29,7 +29,6 @@ $data['fan_count'] = $fan_count;
 //写入配置文件
 writeArr($data);
 
-$result   = "{'event_count':'JSONP Works'}"; // 这里省略了数据库查询等操作，直接给出返回值
 $result   = json_encode($data);
 $callback = isset($_GET['callback']) ? $_GET['callback'] : 'null'; // 最好加上判空和默认值，以防拿不到参数
 echo $callback."(".$result.")";
