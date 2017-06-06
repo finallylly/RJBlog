@@ -41,6 +41,13 @@ class CommonController extends \Common\Controller\CommonController{
 
         $this->commentArr = M('comment')->order("id DESC")->limit(10)->select();
 
+        //网易云音乐 个人信息读取
+        $cloudMusicInfo = include(APP_PATH.'Home/Conf/cloudMusicInfo.php');
+
+        $this->assign(array(
+            'cloudMusicInfo' => $cloudMusicInfo,
+            ));
+
     }
  
     //获取缓存名称

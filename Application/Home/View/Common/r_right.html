@@ -19,9 +19,9 @@
 					</div>
 					<footer>
 						<ul>
-							<li><strong>41</strong><span>关注</span></li>
-							<li><strong>17</strong><span>粉丝</span></li>
-							<li><strong>31</strong><span>动态</span></li>
+							<li><strong id="event_count">{$cloudMusicInfo.event_count}</strong><span>动态</span></li>
+							<li><strong id="follow_count">{$cloudMusicInfo.follow_count}</strong><span>关注</span></li>
+							<li><strong id="fan_count">{$cloudMusicInfo.fan_count}</strong><span>粉丝</span></li>
 						</ul>
 					</footer>
 				</div>
@@ -74,3 +74,21 @@
 	</div>
 
 </div>
+
+<script type="text/javascript">
+	$.ajax({
+	    // url: "http://music.163.com/user/home?id=59986101",
+	    // url: "cloudMusic.php",  //本地测试
+	    url: "http://nearby.wang/cloudMusic.php",  //跨域支持测试
+	    type: "GET",
+	    dataType: 'JSONP',
+	    jsonp: "callback",
+	    jsonpCallback: "dosomething",
+	    success: function(result){
+		    // console.log(result);
+		    $('#event_count').html(result.event_count);
+		    $('#fan_count').html(result.fan_count);
+		    $('#follow_count').html(result.follow_count);
+	    }
+	});
+</script>
