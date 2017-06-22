@@ -1,4 +1,5 @@
 <include file='Common:r_header' />
+<link rel="stylesheet" href="__PUBLIC__/Css/list.css" />
 <!-- 
 <div class="breadcrumb">
     <i class="fa fa-bullhorn"></i>网站改版调试中!
@@ -8,30 +9,35 @@
         <div class="content">
         
             <div class="excerpts">
-                <foreach name='topCate' item='v'>
-                    <foreach name='v.blog' item='var'>
-                        <article class="post" data-id="{$var['id']}">
-                            <header>
-                                <h2><a href="{:U('/s_' . $var['id'])}" title="{$var.title}" rel="bookmark">{$var.title}</a></h2>
-                            </header>
-                            <div class="post-img loading">
-                                <a class="pic float-left" href="{:U('/s_' . $var['id'])}" title="链接到 {$var.title}" rel="bookmark">
-                                    <img class="b-lazy b-loaded" src="__ROOT__/{$var.cover_img}" alt="{$var.title}" width="100%">
-                                </a>
-                            </div>
-                            <div class="post-text">
-                                {$var.summary}
-                            </div>
-                            <footer>
-                                <span><i class="fa fa-clock-o fa-fw"></i>{$var.time|date='Y年m月d日', ###}
-									</span>
-                                <span><i class="fa fa-eye fa-fw"></i>{$var.click} views</span>
-                                <span><i class="fa fa-comment-o fa-fw"></i><a href="{:U('/s_' . $var['id'])}">{$var.comment}评论</a></span>
-                            </footer>
-                        </article>
-                    </foreach>
+                <foreach name='topCate' item='var'>
+                    <article class="post" data-id="{$var['id']}">
+                        <header>
+                            <h2><a href="{:U('/s_' . $var['id'])}" title="{$var.title}" rel="bookmark">{$var.title}</a></h2>
+                        </header>
+                        <div class="post-img loading">
+                            <a class="pic float-left" href="{:U('/s_' . $var['id'])}" title="链接到 {$var.title}" rel="bookmark">
+                                <img class="b-lazy b-loaded" src="__ROOT__/{$var.cover_img}" alt="{$var.title}" width="100%">
+                            </a>
+                        </div>
+                        <div class="post-text">
+                            {$var.summary}
+                        </div>
+                        <footer>
+                            <span><i class="fa fa-clock-o fa-fw"></i>{$var.time|date='Y年m月d日', ###}
+								</span>
+                            <span><i class="fa fa-eye fa-fw"></i>{$var.click} views</span>
+                            <span><i class="fa fa-comment-o fa-fw"></i><a href="{:U('/s_' . $var['id'])}">{$var.comment_count}评论</a></span>
+                        </footer>
+                    </article>
                 </foreach>
             </div>
+
+            <div class="c-footer clear">
+                <div class="page">
+                    {$page}
+                </div>
+            </div>
+            
         </div>
     </div>
     

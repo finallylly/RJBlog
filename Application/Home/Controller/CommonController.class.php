@@ -39,14 +39,18 @@ class CommonController extends \Common\Controller\CommonController{
        
         $this->pagenum = I('param.pagenum') ? intval(I('param.pagenum')) : $this->pagenum;
 
-        $this->commentArr = M('comment')->order("id DESC")->limit(10)->select();
+        $this->commentArr = M('comment')->order("id DESC")->where(array('status'=>1))->limit(10)->select();
 
         //网易云音乐 个人信息读取
         $cloudMusicInfo = include(APP_PATH.'Home/Conf/cloudMusicInfo.php');
+        //右侧标签列表
+        $cate = M('cate')->order('pid ASC')->select();
 
         $this->assign(array(
             'cloudMusicInfo' => $cloudMusicInfo,
+            'cate' => $cate,
             ));
+
 
     }
  

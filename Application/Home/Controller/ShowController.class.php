@@ -27,10 +27,12 @@
 		Public function myblog(){
 			$id = (int)$_GET['id'];
 			M('blog')->where(array('id' => $id))->setInc('click');
-			$field = array('id','title', 'time', 'click', 'content', 'cid');
-			$this->blog = M('blog')->field($field)->find($id);
-			$comment_count = M('comment')->field("id")->where("bid={$id}")->select();
-			$this->comment_count = count($comment_count)+1;
+			$field = array('id','title', 'time', 'click', 'comment_count', 'content', 'cid');
+			$list = M('blog')->field($field)->find($id);
+			$list['comment_count'] += 1;
+			$this->blog = $list;
+			// $comment_count = M('comment')->field("id")->where("bid={$id}")->select();
+			// $this->comment_count = count($comment_count)+1;
 
 			$map = array();
 			$map['bid'] = $id;
@@ -91,7 +93,7 @@
 				'pid' => intval($params['inpId']),
 				'bid' => $params['bid'],
 			);
-			if($bid = M('comment')->add($data)){
+			if(M('comment')->add($data) && M('blog')->where(array('id'=>$data['bid']))->setInc('comment_count')){
 				$this->success('添加成功');
 			}else{
 				$this->error('添加失败');

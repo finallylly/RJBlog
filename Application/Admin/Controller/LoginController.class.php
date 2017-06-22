@@ -26,7 +26,7 @@
 			$user = $db->where(array('usename' => I('username')))->find();
 
 			if(!$user || $user['password'] != I('password','','md5')){
-				print_r($user);
+				// print_r($user);
 				$this->error('账号密码错误');
 			}
 

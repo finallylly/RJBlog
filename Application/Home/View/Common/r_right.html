@@ -53,9 +53,9 @@
 	<div class="widget widget-tie divTags">
 		<h3>标签列表</h3>
 		<ul>
-			<li><a href="c_43.html">口琴简谱<span class="tag-count"> (27)</span></a></li>
-			<li><a href="c_28.html">杂谈<span class="tag-count"> (3)</span></a></li>
-			<li><a href="c_16.html">HTML<span class="tag-count"> (1)</span></a></li>
+			<volist name="cate" id="vo">
+				<li><a href="c_{$vo.id}.html">{$vo.name}<span class="tag-count"></span></a></li>
+			</volist>
 		</ul>
 	</div>
 

@@ -51,8 +51,7 @@
 			$blog = D('BlogView')->getAll($where, $limit);
 			foreach ($blog as $b => $v) {
 				$blog[$b]['cover_img'] || $blog[$b]['cover_img']="./Public/myblog_files/201605241464093846615542.jpg";
-				$comment = M('comment')->field("id")->where("bid={$v['id']}")->select();
-				$blog[$b]['comment'] = count($comment)+1;
+				$blog[$b]['comment_count'] += 1;
 			}
 			$this->blog = $blog;
 
