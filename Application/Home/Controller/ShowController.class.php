@@ -36,6 +36,7 @@
 
 			$map = array();
 			$map['bid'] = $id;
+			$map['status'] = 1;
 			$comment = M('comment')->where($map)->order("id DESC")->select();
 			foreach ($comment as $k => $v) {
 				global $temp_arr;
