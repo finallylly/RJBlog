@@ -93,7 +93,7 @@
 				'pid' => intval($params['inpId']),
 				'bid' => $params['bid'],
 			);
-			if(M('comment')->add($data) && M('blog')->where(array('id'=>$data['bid']))->setInc('comment_count')){
+			if(M('comment')->add($data)){
 				$this->success('添加成功');
 			}else{
 				$this->error('添加失败');
