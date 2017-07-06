@@ -2,10 +2,9 @@
 		<div class="link">
 			<span>友情链接 : </span>
 			<ul>
-				<li><a target="_blank" href="http://z-smile.com">左十米博客</a></li>
-				<li><a target="_blank" href="http://blog.mushix.cc">牧师小屋</a></li>
-				<li><a target="_blank" href="http://junfai.cc">不来彼方</a></li>
-				<li><a target="_blank" href="http://blog.zailaiyiguo.com">再来一锅</a></li>
+				<volist name="link" id="vo">
+					<li><a target="_blank" href="{$vo.url}">{$vo.name}</a></li>
+				</volist>
 			</ul>
 		</div>
 		<img src="__ROOT__/./Uploads/cover_img/QQ20160801002553.jpg" width="0" height="0">

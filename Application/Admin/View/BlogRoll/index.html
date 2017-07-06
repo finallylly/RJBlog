@@ -23,7 +23,7 @@
 					<td>{$v.id}</td>
 					<td>{$v.name}</td>
 					<td>{$v.url}</td>
-					<td>[<a href="">修改</a>][<a href="{:U(MODULE_NAME . '/BlogRoll/del', array('id' => $v['id']))}">删除</a>]</td>
+					<td>[<a href="{:U(MODULE_NAME . '/BlogRoll/add', array('id'=>$v['id']))}">修改</a>][<a href="{:U(MODULE_NAME . '/BlogRoll/del', array('id' => $v['id']))}" onclick="javascript:if(confirm('确定删除？')){return true;}else{return false;}">删除</a>]</td>
 				</tr>
 			</foreach>
 			

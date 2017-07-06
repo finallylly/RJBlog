@@ -11,19 +11,20 @@
  </head>
  <body>
 	<form method="post" action="{:U(MODULE_NAME . '/BlogRoll/runAdd')}">
+        <input type="hidden" name="save" value="{$data.id}">
+
 		<table class='table'>
 			<tr>
 				<td align='right'>链接名称</td>
 				<td>
-					<input type="text" name="name">
+					<input type="text" name="name" value="{$data.name}" require>
 				</td>
 			</tr>
 
 			<tr>
 				<td align='right'>链接地址</td>
 				<td>
-					<input type="text" name="url">
-					不要添加前面的http://
+					<input type="url" name="url" value="{$data.url}" require>
 				</td>
 			</tr>
 

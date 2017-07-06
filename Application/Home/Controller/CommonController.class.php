@@ -46,9 +46,13 @@ class CommonController extends \Common\Controller\CommonController{
         //右侧标签列表
         $cate = M('cate')->order('pid ASC')->select();
 
+        //友情链接
+        $link = M('url')->select();
+
         $this->assign(array(
             'cloudMusicInfo' => $cloudMusicInfo,
             'cate' => $cate,
+            'link' => $link,
             ));
 
 

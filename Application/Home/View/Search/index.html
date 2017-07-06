@@ -1,12 +1,7 @@
 <include file='Common:r_header' />
 
 <div class="breadcrumb">
-    <i class="fa fa-home"></i> <a href="__ROOT__/" title="RJ博客">首页</a>&nbsp;»&nbsp;
-    <php>$last = count($parent) - 1</php>
-    <foreach name='parent' item='v'>
-        <a href="{:U('/c_' . $v['id'])}">{$v.name}</a>
-        <if condition='$key neq $last'>&nbsp;»&nbsp;</if>
-    </foreach>
+    <i class="fa fa-home"></i> <a href="__ROOT__/" title="RJ博客">首页</a>&nbsp;»&nbsp;搜索结果
 </div>
 
 <div class="container">
@@ -37,7 +32,7 @@
                             </div>
                             <footer>
                                 <span><i class="fa fa-clock-o fa-fw"></i>{$var.time|date='Y年m月d日', ###}
-									</span>
+                                    </span>
                                 <span><i class="fa fa-eye fa-fw"></i>{$var.click} views</span>
                                 <span><i class="fa fa-comment-o fa-fw"></i><a href="{:U('/s_' . $var['id'])}">{$var.comment_count}评论</a></span>
                             </footer>

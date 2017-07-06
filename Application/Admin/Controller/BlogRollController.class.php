@@ -11,6 +11,9 @@
 		}
 
 		Public function add(){
+			$id = I('get.id');
+			$id && $this->data = M('url')->where(array('id'=>$id))->find();
+
 			$this->display();
 		}
 
@@ -25,9 +28,14 @@
 		Public function runAdd(){
 			$data = array(
 				'name' => $_POST['name'],
-				'url' => 'http://' . $_POST['url'],
+				'url' => $_POST['url'],
 			);
-			if($bid = M('url')->add($data)){
+
+			if ($id = $_POST['save']) {
+				$data['id'] = $id;
+				M('url')->save($data);
+				$this->success('修改成功', U(MODULE_NAME . '/BlogRoll/index'));
+			}elseif($bid = M('url')->add($data)){
 				$this->success('添加成功', U(MODULE_NAME . '/BlogRoll/index'));
 			}else{
 				$this->error('添加失败');
