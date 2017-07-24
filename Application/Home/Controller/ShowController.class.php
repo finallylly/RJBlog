@@ -81,12 +81,9 @@
 		//添加评论
 		Public function addComment(){
 			$params = I('post.','','urldecode');
-			// p($params);
-			// p(intval($params['inpId']));
-			// die();
 			
 			$data = array(
-				'username' => $params['inpName'],
+				'username' => isset($params['inpName'])?$params['inpName']:'visitor',
 				'mail' => $params['inpEmail'],
 				'site' => $params['inpHomePage'],
 				'content' => htmlspecialchars($params['txaArticle']),  //防止script注入
@@ -94,11 +91,67 @@
 				'pid' => intval($params['inpId']),
 				'bid' => $params['bid'],
 			);
-			if(M('comment')->add($data)){
+
+			if($id=M('comment')->add($data)){
+				$this->asyncTask($id); //异步->伪多线程
 				$this->success('添加成功');
 			}else{
 				$this->error('添加失败');
 			}
+		}
+
+		//异步线程发送邮件
+		function asyncTask($id){
+			$fp=fsockopen($_SERVER['HTTP_HOST'],80,$errno,$errstr,5);
+			if(!$fp){
+				echo "$errstr ($errno)<br />/n"; 
+			}
+
+			$out = "GET ".U('Show/sendMail')."?id=".$id." HTTP/1.1\r\n"; //注意HTTP/1.1不能少
+            $out .= "Host: ".$_SERVER['HTTP_HOST']."\r\n";
+            $out .= "Connection: close\r\n\r\n";
+
+			fputs($fp,$out);  //访问请求, 用fwrite也可以
+            
+            //打印请求结果
+            // while (!feof($fp)) {
+            //     echo fgets($fp, 128);
+            // }
+            
+            usleep(1000); //延迟关闭$fp，让nginx将该请求代理给上游服务（FastCGI PHP进程）
+            fclose($fp);
+		}
+
+		//有新评论发送邮件提示
+		function sendMail(){
+			$id = I('get.id','','urldecode');
+			$data=M('comment')->where(array('id'=>$id))->find();
+			// fopen("C:/".time(),"w"); //window测试
+
+			require_once "./Extends/PHPMailer/PHPMailerAutoload.php";
+			$mail = new \PHPMailer;                               //新建mail类, 否则发送邮箱名会叠加
+			            
+			$mail->isSMTP();                                      // Set mailer to use SMTP
+			$mail->CharSet='UTF-8';                               //设置邮件的字符编码，这很重要，不然中文乱码 
+			$mail->Host = 'smtp.163.com';                   // Specify main and backup SMTP servers
+			$mail->SMTPAuth = true;                               // Enable SMTP authentication
+
+			$mail->Username = 'finallybad@163.com';      // SMTP username
+			$mail->Password = '6556022999';               // SMTP password
+			$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+			$mail->Port = 25;                                     // TCP port to connect to
+			$mail->setFrom('finallybad@163.com', 'RJ博客评论系统');
+
+			$mail->addAddress("347881230@qq.com");      // Name is optional
+			$mail->isHTML(true);                                  // Set email format to HTML
+			$mail->Subject = 'RJ博客新评论提示';
+
+
+			$content = '<pre>'.print_r($data, true).'</pre>';
+			$mail->Body    = $content;
+
+			$mail->AltBody = '为了查看该邮件，请切换到支持 HTML 的邮件客户端';
+			$mail->send();
 		}
 		
 
