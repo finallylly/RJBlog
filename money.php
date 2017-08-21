@@ -46,11 +46,13 @@ body {font-size:41px;font-family: "Microsoft Yahei","Helvetica Neue",Helvetica,A
 .res {margin:0 auto;width:600px;text-align:center;padding-top:5px;}
 .tr  {height:60px;width:200px; font-size:50px;outline:none;padding:0px 10px;}
 .tb  {position:relative;font-size:25px;width:500px;margin:0 auto;text-align:center;}
-.sub {height: 110px;width: 94%;font-size:80px;margin:2% 3%;border-radius:25px;outline:none;background:#97CBEF;cursor:pointer;border:0px; font-family: "Microsoft Yahei","Helvetica Neue",Helvetica,Arial,sans-serif; }
-.sub:hover {background:#7CB8E2;}
+.sub {height: 110px;width: 94%;font-size:70px;margin:2% 3%;border-radius:25px;outline:none;color:white;background:#399139;cursor:pointer;border:0px; font-family: "Microsoft Yahei","Helvetica Neue",Helvetica,Arial,sans-serif;}
+.sub:hover {background:#489948;}
 </style>
 
 <body>
+<a href="https://github.com/finallylly/RJBlog/blob/master/money.php"><img style="position:absolute;top:0;right:0;border:0;width:250px;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+
     <form method="get" action="" style="margin-top:30px;margin:0 3%;">
         <div class="out">
             <span class="tl">公积金多存(元)</span>
