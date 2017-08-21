@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Money</title>
+    <title>公积金减税 VS 理财</title>
     <link rel="SHORTCUT ICON" href="./Public/Images/logo-icon.png" />
 </head>
 
@@ -20,9 +20,9 @@ $year = isset($_REQUEST['year']) ? $_REQUEST['year'] : 5;    //自理财年限
 
 #365日息 12月息 1年息
 $conf = array(
-  365 => '日回息',
-  12  => '月回息',
-  1   => '年回息'
+  365 => '日回息理财',
+  12  => '月回息理财',
+  1   => '年回息理财'
   );
 
 #计算
@@ -41,12 +41,12 @@ foreach ($conf as $k => $v) {
 ?>
 
 <style type="text/css">
-body {font-size:50px;font-family: "Microsoft Yahei","Helvetica Neue",Helvetica,Arial,sans-serif;}
+body {font-size:41px;font-family: "Microsoft Yahei","Helvetica Neue",Helvetica,Arial,sans-serif;}
 .out {width:582px;margin:0 auto;padding-top:10px;}
 .res {margin:0 auto;width:600px;text-align:center;padding-top:5px;}
 .tr  {height:60px;width:200px; font-size:50px;outline:none;padding:0px 10px;}
-.tb  {position:relative;font-size:14px;width:300px;margin:0 auto;text-align:center;}
-.sub {height: 150px;width: 94%;font-size:100px;margin:3%;border-radius:25px;outline:none;background:#97CBEF;cursor:pointer;border:0px; font-family: "Microsoft Yahei","Helvetica Neue",Helvetica,Arial,sans-serif; }
+.tb  {position:relative;font-size:25px;width:500px;margin:0 auto;text-align:center;}
+.sub {height: 110px;width: 94%;font-size:80px;margin:2% 3%;border-radius:25px;outline:none;background:#97CBEF;cursor:pointer;border:0px; font-family: "Microsoft Yahei","Helvetica Neue",Helvetica,Arial,sans-serif; }
 .sub:hover {background:#7CB8E2;}
 </style>
 
@@ -62,7 +62,7 @@ body {font-size:50px;font-family: "Microsoft Yahei","Helvetica Neue",Helvetica,A
             <input class="tr" type="text" name="gain" value="<?php echo $gain; ?>">
         </div>
         <div class="out">
-            <span class="tl">只理财利率(％)</span>
+            <span class="tl">自理财利率(％)</span>
             <input class="tr" type="text" name="rate" value="<?php echo $rate; ?>">
         </div>
         <div class="out">
@@ -72,10 +72,12 @@ body {font-size:50px;font-family: "Microsoft Yahei","Helvetica Neue",Helvetica,A
         <input class="sub" type="submit" name="sub" value=" 生成 ">
         <div class="tb">
             <a href="https://github.com/finallylly/RJBlog/blob/master/money.php" target="_black">
-                <img margin="0 auto" src="./Uploads/cover_img/QQ20160801002553.jpg" width="200" height="200" align="middle">
+                <img margin="0 auto" src="./Uploads/cover_img/QQ20160801002553.jpg" width="150" height="150" align="middle">
             </a>
             <hr>
-            Provide By RJ &nbsp;｜&nbsp; Wechat ID：finallylly
+            Wechat ID：finallylly<br>
+            Feedback：finallybad@gmail.com<br>
+            Copyright © RJ All Rights Reserved. 
         </div>
     </form>
 </body>
