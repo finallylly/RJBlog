@@ -775,7 +775,7 @@ margin-right: auto;}
 /* follows */
 .follows{padding:16px 13px 16px 10px;}
 .follows ul li{background: none;}
-.follows li a{display:block;margin-left:4px;width:24px;height:24px;background:url(images/social24.png) no-repeat;text-indent:-9999px;opacity:0.7;}
+.follows li a{display:block;margin-left:2px;width:24px;height:24px;background:url(images/social24.png) no-repeat;text-indent:-9999px;opacity:0.7;}
 .follows li a:hover{opacity:1;}
 .follows li.website a{background-position:0 0;}
 .follows li.sina_weibo a{background-position:0 -68px;}
