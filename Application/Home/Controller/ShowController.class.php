@@ -136,8 +136,8 @@
 			$mail->Host = 'smtp.163.com';                   // Specify main and backup SMTP servers
 			$mail->SMTPAuth = true;                               // Enable SMTP authentication
 
-			$mail->Username = 'finallybad@163.com';      // SMTP username
-			$mail->Password = '6666';               // SMTP password
+			$mail->Username = C('MAIL_USER');      // SMTP username
+			$mail->Password = C('MAIL_PWD');               // SMTP password
 			$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 			$mail->Port = 25;                                     // TCP port to connect to
 			$mail->setFrom('finallybad@163.com', 'RJ博客评论系统');
