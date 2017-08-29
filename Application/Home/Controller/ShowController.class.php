@@ -137,7 +137,7 @@
 			$mail->SMTPAuth = true;                               // Enable SMTP authentication
 
 			$mail->Username = 'finallybad@163.com';      // SMTP username
-			$mail->Password = '6556022999';               // SMTP password
+			$mail->Password = '6666';               // SMTP password
 			$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 			$mail->Port = 25;                                     // TCP port to connect to
 			$mail->setFrom('finallybad@163.com', 'RJ博客评论系统');
