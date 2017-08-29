@@ -783,11 +783,12 @@ margin-right: auto;}
 .follows li.rss a{background-position:0 -238px;}
 .follows li.email a{background-position:0 -170px;}
 .follows li.qq a{background-position:0 -34px;}
+.follows li.github a{background-position:0 -271px;}
 .follows li.twitter a{background-position:0 -204px;}
 .follows li.google_plus a{background-position:0 -136px;}
 .follows li.archive a{width:78px;height:24px;background:url(images/archive.png) no-repeat;}
 .follows li.donate a{width:78px;height:24px;background:url(images/donate.png) no-repeat;}
-.follows li{display:inline;float:left;margin-right:4px;height:24px;text-align:center;line-height:190%;}
+.follows li{display:inline;float:left;margin-right:2px;height:24px;text-align:center;line-height:190%;}
 /* 
  * relates
  * ====================================================================================================
