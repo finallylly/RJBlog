@@ -94,6 +94,10 @@ function VerifyMessage() {
 	// 	}
 	// );
 
+	SetCookie('inpName', strName);
+	SetCookie('inpEmail', strEmail);
+	SetCookie('inpHomePage', strHomePage);
+
 	return true;
 	//ajax comment end
 

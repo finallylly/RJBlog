@@ -195,7 +195,7 @@
                                         <input type="text" name="inpEmail" id="inpEmail" class="text" value="" placeholder="您的邮箱" size="28" tabindex="2">
                                     </li>
                                     <li>
-                                        <input type="text" name="inpHomePage" id="inpHomePage" class="text" value="" placeholder="您的网站" onfocus="this.value='http://'" size="28" tabindex="3">
+                                        <input type="text" name="inpHomePage" id="inpHomePage" class="text" value="" placeholder="您的网站" onfocus="this.value=this.value?this.value:'http://'" size="28" tabindex="3">
                                     </li>
                                 </ul>
                             </div>
@@ -222,6 +222,10 @@
         $('#cancel-reply').click(function(){
             $("input[name='inpId']").val('');
         });
+
+        $("#inpName").val(GetCookie('inpName'));
+        $("#inpEmail").val(GetCookie('inpEmail'));
+        $("#inpHomePage").val(GetCookie('inpHomePage'));
 
     })
 </script>

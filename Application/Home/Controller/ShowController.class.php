@@ -138,9 +138,9 @@
 
 			$mail->Username = C('MAIL_USER');      // SMTP username
 			$mail->Password = C('MAIL_PWD');               // SMTP password
-			$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-			$mail->Port = 25;                                     // TCP port to connect to
-			$mail->setFrom('finallybad@163.com', 'RJ博客评论系统');
+			$mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+			$mail->Port = 465;                                     // TCP port to connect to
+			$mail->setFrom(C('MAIL_USER'), 'RJ博客评论系统');
 
 			$mail->addAddress("347881230@qq.com");      // Name is optional
 			$mail->isHTML(true);                                  // Set email format to HTML
