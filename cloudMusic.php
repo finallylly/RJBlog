@@ -3,6 +3,7 @@
  * 网易云音乐个人信息爬虫
  * Author : RJ
  * Date   : 20170606
+ * Notice : 网易云个人信息页面有hearder验证, 需要设置Referer、User-Agent
  */
 include 'ganon.php'; //爬虫html解析文件
 
@@ -12,7 +13,22 @@ $url = "http://music.163.com/user/home?id=59986101";
 // fwrite($fp, $html);
 // fclose($fp);
 
-$html= file_get_dom($url);
+$headers = array();
+$headers[] = 'Referer: http://music.163.com/';
+$headers[] = 'User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.3964.2 Safari/537.36';
+
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_BINARYTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+$output = curl_exec($ch);
+curl_close($ch);
+
+//先用curl获取内容, 再把获取的内容传递进去解析
+$html= str_get_dom($output); 
+// $html= file_get_dom($url);
+
 // echo "网易云用户 finally_y 信息:<br>\n";
 // echo "动态", $html("#event_count")[0]->getPlainText(), "<br>\n";
 // echo "关注", $html("#follow_count")[0]->getPlainText(), "<br>\n";
