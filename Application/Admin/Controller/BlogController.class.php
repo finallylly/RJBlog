@@ -10,7 +10,7 @@
 			//$field = array('del');
 			//$where = array('del' => 0);
 			//$this->blog = D('BlogRelation')->field($field, true)->where($where)->relation(true)->select();
-			$this->blog = D('BlogRelation')->getBlogs();
+			$this->blog = D('BlogRelation')->order('time desc')->getBlogs();
 			$this->display();
 		}
 
