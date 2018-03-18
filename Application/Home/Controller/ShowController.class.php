@@ -82,6 +82,10 @@
 		Public function addComment(){
 			$params = I('post.','','urldecode');
 			
+			if ($params['token']!=md5(date("Y-m-d"))) {
+				$this->error('数据异常');
+			}
+			
 			$data = array(
 				'username' => isset($params['inpName'])?$params['inpName']:'visitor',
 				'mail' => $params['inpEmail'],

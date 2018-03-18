@@ -197,6 +197,7 @@
                                     <li>
                                         <input type="text" name="inpHomePage" id="inpHomePage" class="text" value="" placeholder="您的网站" onfocus="this.value=this.value?this.value:'http://'" size="28" tabindex="3">
                                     </li>
+                                    <input type="hidden" name="token" value="{:md5(date('Y-m-d'))}">
                                 </ul>
                             </div>
                         </form>
