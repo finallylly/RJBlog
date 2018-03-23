@@ -82,8 +82,14 @@
 		Public function addComment(){
 			$params = I('post.','','urldecode');
 			
+			//token验证
 			if ($params['token']!=md5(date("Y-m-d"))) {
 				$this->error('数据异常');
+			}
+
+			//屏蔽广告评论
+			if (!(strstr($params['txaArticle'],'a href=')===false)) {
+				$this->error('含有广告信息, 已屏蔽');
 			}
 			
 			$data = array(
@@ -95,7 +101,7 @@
 				'pid' => intval($params['inpId']),
 				'bid' => $params['bid'],
 			);
-
+			
 			if($id=M('comment')->add($data)){
 				$this->asyncTask($id); //异步->伪多线程
 				$this->success('添加成功');
