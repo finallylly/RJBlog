@@ -83,17 +83,20 @@
 			$params = I('post.','','urldecode');
 			
 			//token验证
-			if ($params['token']!=md5(date("Y-m-d"))) {
+			if ($params['token']!=md5(date("Y-m-d")) || !$params['inpName'] || !$params['inpEmail'] || !$params['inpHomePage']) {
 				$this->error('数据异常');
 			}
 
 			//屏蔽广告评论
-			if (!(strstr($params['txaArticle'],'a href=')===false)) {
-				$this->error('含有广告信息, 已屏蔽');
+			$filterArr = array('a href=', 'http://', 'https://');
+			foreach ($filterArr as $v) {
+				if (!(strstr($params['txaArticle'], $v)===false)) {
+					$this->error('含有广告信息, 已屏蔽');
+				}
 			}
 			
 			$data = array(
-				'username' => isset($params['inpName'])?$params['inpName']:'visitor',
+				'username' => $params['inpName'],
 				'mail' => $params['inpEmail'],
 				'site' => $params['inpHomePage'],
 				'content' => htmlspecialchars($params['txaArticle']),  //防止script注入
