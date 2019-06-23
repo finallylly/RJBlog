@@ -1,5 +1,5 @@
 # RJBlog
-Build your own personal blog
+Build your personal blog
 
 # Demo
 http://nearby.wang
